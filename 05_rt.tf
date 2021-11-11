@@ -5,6 +5,6 @@ resource "aws_route_table" "shyun_rt" {
         gateway_id = aws_internet_gateway.shyun_ig.id
     }
     tags = {
-        "name" = "shyun-rt"
+        "Name" = "shyun-rt"
     }
 }
