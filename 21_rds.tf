@@ -4,7 +4,7 @@ resource "aws_db_instance" "shyun_rds" {
   engine = "mysql"
   engine_version = "8.0"
   instance_class = "db.t2.micro"
-  name = "mydb"
+  name = "test"
   identifier = "test"
   username = "admin"
   password = "Bespinbespin1!"
