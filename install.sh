@@ -12,6 +12,7 @@ cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sed -i 's/database_name_here/test/g' /var/www/html/wp-config.php
 sed -i 's/username_here/admin/g' /var/www/html/wp-config.php
 sed -i 's/password_here/It12345!/g' /var/www/html/wp-config.php
-sed -i 's/localhost/test.cqep7uwq9udb.ap-northeast-2.rds.amazonaws.com/g' /var/www/html/wp-config.php
+sed -i 's/localhost/test.cmrurzg4r4fn.ap-northeast-2.rds.amazonaws.com/g' /var/www/html/wp-config.php
+echo "shyun" > /var/www/html/health.html
 systemctl enable httpd
 systemctl start httpd
