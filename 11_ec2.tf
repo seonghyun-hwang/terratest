@@ -40,3 +40,7 @@ resource "aws_eip" "shyun_weba_ip" {
     aws_internet_gateway.shyun_ig
   ]
 }
+
+output "public_ip" {
+  value = aws_instance.shyun_weba.public_ip
+}
