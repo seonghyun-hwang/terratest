@@ -33,3 +33,21 @@ resource "aws_subnet" "shyun_pric" {
         "Name" = "shyun-pric"
     }
 }
+
+resource "aws_subnet" "shyun_pridba" {
+    vpc_id = aws_vpc.shyun_vpc.id
+    cidr_block = "10.0.4.0/24"
+    availability_zone = "ap-northeast-2a"
+    tags = {
+        "Name" = "shyun-pridba"
+    }
+}
+
+resource "aws_subnet" "shyun_pridbc" {
+    vpc_id = aws_vpc.shyun_vpc.id
+    cidr_block = "10.0.5.0/24"
+    availability_zone = "ap-northeast-2c"
+    tags = {
+        "Name" = "shyun-pridbc"
+    }
+}
