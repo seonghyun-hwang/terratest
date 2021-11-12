@@ -1,0 +1,13 @@
+resource "aws_launch_configuration" "shyun_aslc" {
+  name_prefix = "shyun-web-"
+  image_id = aws_ami_from_instance.shyun_ami.id
+  instance_type = "t2.micro"
+  iam_instance_profile = "admin_role"
+  security_groups = [aws_security_group.shyun_sg.id]
+  key_name = "shyun2-key"
+  # user_data = file("./install.sh")
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
