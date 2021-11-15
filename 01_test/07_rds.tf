@@ -9,19 +9,19 @@ resource "aws_db_instance" "shyun_rds" {
   username = "admin"
   password = "Bespinbespin1!"
   parameter_group_name = "default.mysql8.0"
-  availability_zone = "ap-northeast-2a"
+  availability_zone = "${var.region}${var.ava[0]}"
   db_subnet_group_name = aws_db_subnet_group.shyun-dbsb.id
   vpc_security_group_ids = [aws_security_group.shyun_sg.id]
   skip_final_snapshot = true
   tags = {
-    "Name" = "shyun-rds"
+    "Name" = "${var.name}-rds"
   }
 }
 
 resource "aws_db_subnet_group" "shyun-dbsb" {
   name = "shyun-dbsb-group"
-  subnet_ids = [aws_subnet.shyun_pridba.id, aws_subnet.shyun_pridbc.id]
+  subnet_ids = [aws_subnet.shyun_pridb[0].id, aws_subnet.shyun_pridb[1].id]
   tags = {
-    "Name" = "shyun-dbsb-gp"
+    "Name" = "${var.name}-dbsb-gp"
   }
 }

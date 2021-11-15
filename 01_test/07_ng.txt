@@ -4,7 +4,7 @@ resource "aws_eip" "shyun_eip_ng" {
 
 resource "aws_nat_gateway" "shyun_ng" {
   allocation_id = aws_eip.shyun_eip_ng.id
-  subnet_id = aws_subnet.shyun_puba.id
+  subnet_id = aws_subnet.shyun_pub[0].id
   tags = {
     "Name" = "shyun-ng"
   }
