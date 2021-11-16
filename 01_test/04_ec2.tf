@@ -95,7 +95,7 @@ resource "aws_instance" "shyun_weba" {
   private_ip = "10.0.0.11"
   subnet_id = aws_subnet.shyun_pub[0].id
   vpc_security_group_ids = [aws_security_group.shyun_sg.id]
-  user_data = file("./install.sh")
+  user_data = file("../01_test/install.sh")
 }
 
 resource "aws_eip" "shyun_weba_ip" {
