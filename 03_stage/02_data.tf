@@ -2,7 +2,7 @@ module "stage" {
   source = "../01_test"
 
   name = "shyun"
-  region = "ap-northeast-2"
+  region = "ap-northeast-3"
   ava = ["a","c"]
   key = "shyun-key"
   cidr_main = "10.0.0.0/16"
@@ -16,4 +16,15 @@ module "stage" {
   port_ssh = "22"
   port_sql = "3306"
   protocol_http = "HTTP"
+  load_type = "application"
+  tg_type = "instance"
+  ins_type = "t2.micro"
+  storage_size = 20
+  storage_type = "gp2"
+  sql_engine = "mysql"
+  dbins_type = "db.t2.micro"
+  db_name = "test"
+  db_username = "admin"
+  db_password = "Bespinbespin1!"
+  nul = null
 }
