@@ -55,7 +55,7 @@ variable "port_http" {
 
 variable "protocol_tcp" {
   type = string
-  #default = "tcp"
+  #default = "TCP"
 }
 
 variable "port_ssh" {
@@ -71,4 +71,58 @@ variable "port_sql" {
 variable "protocol_http" {
   type = string
   #default = "HTTP"
+}
+
+variable "ins_type" {
+  type = string
+  #default = "t2.micro"
+}
+
+variable "load_type" {
+  type = string
+  #default = "application"
+}
+
+variable "nul" {
+  #default = null
+}
+
+variable "tg_type" {
+  type = string
+  #default = "instance"
+}
+
+variable "storage_size" {
+  type = number
+  #default = 20
+}
+
+variable "storage_type" {
+  type = string
+  #default = "gp2"
+}
+
+variable "sql_engine" {
+  type = string
+  #default = "mysql"
+}
+
+variable "dbins_type" {
+  type = string
+  #default = "db.t3.micro"
+}
+
+variable "db_name" {
+  type = string
+  #default = "test"
+}
+
+variable "db_username" {
+  type = string
+  #default = "admin"
+}
+
+variable "db_password" {
+  type = string
+  #default = "Bespinbespin1!"
 }

@@ -2,7 +2,7 @@
 resource  "aws_lb"  "shyun_alb" {
   name = "${var.name}-alb"
   internal = false
-  load_balancer_type = "application"
+  load_balancer_type = var.load_type
   security_groups = [aws_security_group.shyun_sg.id]
   subnets = [aws_subnet.shyun_pub[0].id,aws_subnet.shyun_pub[1].id] # lb이 사용할 public zone
 
@@ -16,7 +16,7 @@ resource "aws_lb_target_group" "shyun_albtg" {
   name = "${var.name}-albtg"
   port = var.port_http
   protocol = var.protocol_http
-  target_type = "instance"
+  target_type = var.tg_type
   vpc_id = aws_vpc.shyun_vpc.id
 
   health_check {

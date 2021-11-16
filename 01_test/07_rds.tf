@@ -1,13 +1,13 @@
 resource "aws_db_instance" "shyun_rds" {
-  allocated_storage = 20
-  storage_type = "gp2"
-  engine = "mysql"
+  allocated_storage = var.storage_size
+  storage_type = var.storage_type
+  engine = var.sql_engine
   engine_version = "8.0"
-  instance_class = "db.t2.micro"
-  name = "test"
-  identifier = "test"
-  username = "admin"
-  password = "Bespinbespin1!"
+  instance_class = var.dbins_type
+  name = var.db_name
+  identifier = var.db_name
+  username = var.db_username
+  password = var.db_password
   parameter_group_name = "default.mysql8.0"
   availability_zone = "${var.region}${var.ava[0]}"
   db_subnet_group_name = aws_db_subnet_group.shyun-dbsb.id

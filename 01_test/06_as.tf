@@ -16,7 +16,7 @@ resource "aws_ami_from_instance" "shyun_ami" {
 resource "aws_launch_configuration" "shyun_aslc" {
   name_prefix = "${var.name}-web-"
   image_id = aws_ami_from_instance.shyun_ami.id
-  instance_type = "t2.micro"
+  instance_type = var.ins_type
   iam_instance_profile = "admin_role"
   security_groups = [aws_security_group.shyun_sg.id]
   key_name = var.key

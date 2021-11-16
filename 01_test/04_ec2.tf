@@ -12,9 +12,9 @@ resource "aws_security_group" "shyun_sg" {
       protocol = var.protocol_tcp
       cidr_blocks = [var.cidr_route]
       ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
-      prefix_list_ids = null
-      security_groups = null
-      self = null
+      prefix_list_ids = var.nul
+      security_groups = var.nul
+      self = var.nul
     },
         {
       description = "Allow SSH"
@@ -23,9 +23,9 @@ resource "aws_security_group" "shyun_sg" {
       protocol = var.protocol_tcp
       cidr_blocks = [var.cidr_route]
       ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
-      prefix_list_ids = null
-      security_groups = null
-      self = null
+      prefix_list_ids = var.nul
+      security_groups = var.nul
+      self = var.nul
     },
         {
       description = "Allow SQL"
@@ -34,9 +34,9 @@ resource "aws_security_group" "shyun_sg" {
       protocol = var.protocol_tcp
       cidr_blocks = [var.cidr_route]
       ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
-      prefix_list_ids = null
-      security_groups = null
-      self = null
+      prefix_list_ids = var.nul
+      security_groups = var.nul
+      self = var.nul
     },
         {
       description = "Allow ICMP"
@@ -45,9 +45,9 @@ resource "aws_security_group" "shyun_sg" {
       protocol = "icmp"
       cidr_blocks = [var.cidr_route]
       ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
-      prefix_list_ids = null
-      security_groups = null
-      self = null
+      prefix_list_ids = var.nul
+      security_groups = var.nul
+      self = var.nul
     }
   ]
   egress = [
@@ -58,9 +58,9 @@ resource "aws_security_group" "shyun_sg" {
       protocol = -1
       cidr_blocks = [var.cidr_route]
       ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
-      prefix_list_ids = null
-      security_groups = null
-      self = null
+      prefix_list_ids = var.nul
+      security_groups = var.nul
+      self = var.nul
     }
   ]
   tags = {
@@ -89,7 +89,7 @@ data "aws_ami" "amzn" {
 
 resource "aws_instance" "shyun_weba" {
   ami = "ami-04e8dfc09b22389ad"
-  instance_type = "t2.micro"
+  instance_type = var.ins_type
   key_name = var.key
   availability_zone = "${var.region}${var.ava[0]}"
   private_ip = "10.0.0.11"
